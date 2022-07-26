@@ -1,0 +1,386 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+	<meta charset="UTF-8">
+	<title>Cloud Controller | Hosting dedicated servers</title>
+	  <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+	  <link rel="shortcut icon" href="/favicon.png" type="image/x-icon">
+	  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/uikit/3.5.4/css/uikit.min.css" />
+
+	  <script src="https://cdnjs.cloudflare.com/ajax/libs/uikit/3.5.4/js/uikit.min.js"></script>
+	  <script src="https://cdnjs.cloudflare.com/ajax/libs/uikit/3.5.4/js/uikit-icons.min.js"></script>
+	  <style>
+	  	.uk-navbar-item, .uk-navbar-nav > li > a, .uk-navbar-toggle {padding: 0 10px;}
+	  </style>
+</head>
+<body style="background: #f8f8f8;">
+	<div class="uk-background-primary uk-light" uk-sticky="show-on-up: true; animation: uk-animation-slide-top;">
+		<div class="uk-container uk-container-small">
+			<nav class="uk-navbar-container uk-navbar-transparent" uk-navbar>
+				<div class="uk-navbar-left uk-text-uppercase">
+					<a href="/" class="uk-logo" style="color: #fff;"><span uk-icon="icon: server; ratio: 1.7" class="uk-margin-small-right"  style="color: #fff;"></span>Cloud Controller</a>
+				</div>
+				<div class="uk-navbar-right">
+			        <ul class="uk-navbar-nav uk-visible@m">
+	                    <li class="uk-active">
+	                    	<a href="/ovz.html"><span class="uk-margin-small-right" uk-icon="cart"></span>Услуги<span class="uk-margin-small-left" uk-icon="chevron-down"></a>
+			                <div class="uk-navbar-dropdown" style="width: 220px;">
+			                    <ul class="uk-nav uk-navbar-dropdown-nav">
+			                        <li class="uk-active"><a href="/ovz.html"><span class="uk-margin-small-right" uk-icon="grid"></span>Серверы VDS</a></li>
+			                        <li><a href="/support.html"><span class="uk-margin-small-right" uk-icon="settings"></span>Администрирование</a></li>
+			                    </ul>
+			                </div>
+	                    </li>
+<!-- 	                    <li class="">
+	                    	<a href="#"><span class="uk-margin-small-right" uk-icon="lifesaver"></span>Информация<span class="uk-margin-small-left" uk-icon="chevron-down"></a>
+			                <div class="uk-navbar-dropdown">
+			                    <ul class="uk-nav uk-navbar-dropdown-nav">
+			                        <li class="#"><a href="#"><span class="uk-margin-small-right" uk-icon="users"></span>Блог</a></li>
+			                        <li><a href="#"><span class="uk-margin-small-right" uk-icon="file-pdf"></span>Документация</a></li>
+			                        <li><a href="#"><span class="uk-margin-small-right" uk-icon="list"></span>Узлы кластера</a></li>
+			                        <li><a href="#"><span class="uk-margin-small-right" uk-icon="mail"></span>Контакты</a></li>
+			                    </ul>
+			                </div>
+	                    </li> -->
+                        <li class=""><a href="#" target="_blank"><span class="uk-margin-small-right" uk-icon="user"></span>Личный кабинет</a></li>
+ 			        </ul>
+			        <ul class="uk-navbar-nav uk-hidden@m">
+			            <li class="uk-active">
+			                <a href="#"><span class="uk-margin-small-right" uk-icon="menu"></span></a>
+			                <div class="uk-navbar-dropdown">
+			                    <ul class="uk-nav uk-navbar-dropdown-nav">
+			                        <li class="uk-active"><a href="/ovz.html"><span class="uk-margin-small-right" uk-icon="grid"></span>OVZ</a></li>
+				                    <li><a href="/support.html"><span class="uk-margin-small-right" uk-icon="settings"></span>Support</a></li>
+				                    <li class=""><a href="#" target="_blank"><span class="uk-margin-small-right" uk-icon="cart"></span>Billing</a></li>
+			                    </ul>
+			                </div>			          
+			            </li>
+ 			        </ul>
+				</div>
+			</nav>
+		</div>
+	</div>
+	<div class="uk-container uk-container-small uk-margin-top uk-margin-bottom" style="min-height: calc(100vh - 181px);">
+		<div class="uk-flex uk-flex-between">
+			<div><h1 class="uk-h2">Virtuozzo Containers</h1></div>
+			<div><img src="/vz.png" alt="" class=""></div>
+		</div>
+		<div class="uk-card uk-card-body uk-card-primary uk-margin-bottom" style="background: #6495ED;">
+			<div class="uk-child-width-1-2@m uk-grid-small" uk-grid>
+				<div>
+					<div class="uk-grid-small" uk-grid>
+						<div class="uk-width-auto">
+							<span class="" uk-icon="ratio:1; icon:settings;" style="color: #fff;"></span>
+						</div>
+						<div class="uk-width-expand">
+							<h3 class="uk-h4">Гибкая тарификация</h3>
+							Изменяйте настройки тарифа в любую сторону без остановки или перезагрузки сервера.
+						</div>
+					</div>
+				</div>
+				<div>
+					<div class="uk-grid-small" uk-grid>
+						<div class="uk-width-auto">
+							<span class="" uk-icon="ratio:1; icon:list;" style="color: #fff;"></span>
+						</div>
+						<div class="uk-width-expand">
+							<h3 class="uk-h4">Мощные серверы</h3>
+							Мы используем только новое и современное оборудование.
+						</div>
+					</div>
+				</div>
+				<div>
+					<div class="uk-grid-small" uk-grid>
+						<div class="uk-width-auto">
+							<span class="" uk-icon="ratio:1; icon:location;" style="color: #fff;"></span>
+						</div>
+						<div class="uk-width-expand">
+							<h3 class="uk-h4">Широкая география</h3>
+							Быстрый доступ из Европы и европейской части России. Список локаций будет пополняться.
+						</div>
+					</div>
+				</div>
+				<div>
+					<div class="uk-grid-small" uk-grid>
+						<div class="uk-width-auto">
+							<span class="" uk-icon="ratio:1; icon:users;" style="color: #fff;"></span>
+						</div>
+						<div class="uk-width-expand">
+							<h3 class="uk-h4">Квалифицированный персонал</h3>
+							Администраторы и сотрудники техподдержки с более чем 10-летним стажем.
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>	
+		<div class="uk-child-width-1-2@m uk-grid-medium uk-margin-bottom" uk-grid>
+			<div>
+				<div class="uk-card uk-card-body uk-card-default uk-box-shadow-large">
+					<h3 class="uk-card-title uk-heading-divider">Master</h3>
+					<p class="uk-text-muted"><span class="uk-margin-small-right" uk-icon="location"></span>Германия, Финляндия</p>
+					<div class="uk-grid-small" uk-grid>
+					    <div class="uk-width-expand" uk-leader>CPU</div>
+					    <div>1 vCore</div>
+					</div>
+					<div class="uk-grid-small" uk-grid>
+					    <div class="uk-width-expand" uk-leader>Disk</div>
+					    <div>20 Gb <small>NVMe</small></div>
+					</div>
+					<div class="uk-grid-small" uk-grid>
+					    <div class="uk-width-expand" uk-leader>Disk (max)</div>
+					    <div>50 Gb <small>NVMe</small></div>
+					</div>
+					<div class="uk-grid-small" uk-grid>
+					    <div class="uk-width-expand" uk-leader>Disk I/O</div>
+					    <div>20 Mb/s</div>
+					</div>
+					<ul class="uk-child-width-expand" uk-tab>
+					    <li><a href="#">1 Gb RAM</a></li>
+					    <li><a href="#">2 Gb RAM</a></li>
+					    <li><a href="#">3 Gb RAM</a></li>
+					</ul>
+
+					<ul class="uk-switcher uk-margin uk-text-small">
+					    <li>	
+							<div class="uk-grid-small" uk-grid>
+							    <div class="uk-width-expand" uk-leader>День</div>
+							    <div>8.33 ₽</div>
+							</div>	
+							<div class="uk-grid-small" uk-grid>
+							    <div class="uk-width-expand" uk-leader>Месяц</div>
+							    <div>250 ₽</div>
+							</div>					    	
+					    </li>
+					    <li>
+							<div class="uk-grid-small" uk-grid>
+							    <div class="uk-width-expand" uk-leader>День</div>
+							    <div>11.66 ₽</div>
+							</div>	
+							<div class="uk-grid-small" uk-grid>
+							    <div class="uk-width-expand" uk-leader>Месяц</div>
+							    <div>350 ₽</div>
+							</div>					    	
+					    </li>
+					    <li>	
+							<div class="uk-grid-small" uk-grid>
+							    <div class="uk-width-expand" uk-leader>День</div>
+							    <div>15 ₽</div>
+							</div>	
+							<div class="uk-grid-small" uk-grid>
+							    <div class="uk-width-expand" uk-leader>Месяц</div>
+							    <div>450 ₽</div>
+							</div>					    	
+					    </li>
+					</ul>
+				</div>
+			</div>
+			<div>
+				<div class="uk-card uk-card-body uk-card-default uk-box-shadow-large">
+					<h3 class="uk-card-title uk-heading-divider">Professional</h3>
+					<p class="uk-text-muted"><span class="uk-margin-small-right" uk-icon="location"></span>Германия, Финляндия</p>
+					<div class="uk-grid-small" uk-grid>
+					    <div class="uk-width-expand" uk-leader>CPU</div>
+					    <div>2 vCore</div>
+					</div>
+					<div class="uk-grid-small" uk-grid>
+					    <div class="uk-width-expand" uk-leader>Disk</div>
+					    <div>20 Gb <small>NVMe</small></div>
+					</div>
+					<div class="uk-grid-small" uk-grid>
+					    <div class="uk-width-expand" uk-leader>Disk (max)</div>
+					    <div>100 Gb <small>NVMe</small></div>
+					</div>
+					<div class="uk-grid-small" uk-grid>
+					    <div class="uk-width-expand" uk-leader>Disk I/O</div>
+					    <div>50 Mb/s</div>
+					</div>
+					<ul class="uk-child-width-expand" uk-tab>
+					    <li><a href="#">4 Gb RAM</a></li>
+					    <li><a href="#">6 Gb RAM</a></li>
+					    <li><a href="#">8 Gb RAM</a></li>
+					</ul>
+
+					<ul class="uk-switcher uk-margin uk-text-small">
+					    <li>	
+							<div class="uk-grid-small" uk-grid>
+							    <div class="uk-width-expand" uk-leader>День</div>
+							    <div>20 ₽</div>
+							</div>	
+							<div class="uk-grid-small" uk-grid>
+							    <div class="uk-width-expand" uk-leader>Месяц</div>
+							    <div>600 ₽</div>
+							</div>					    	
+					    </li>
+					    <li>	
+							<div class="uk-grid-small" uk-grid>
+							    <div class="uk-width-expand" uk-leader>День</div>
+							    <div>26.66 ₽</div>
+							</div>	
+							<div class="uk-grid-small" uk-grid>
+							    <div class="uk-width-expand" uk-leader>Месяц</div>
+							    <div>800 ₽</div>
+							</div>					    	
+					    </li>
+					    <li>
+							<div class="uk-grid-small" uk-grid>
+							    <div class="uk-width-expand" uk-leader>День</div>
+							    <div>33.33 ₽</div>
+							</div>	
+							<div class="uk-grid-small" uk-grid>
+							    <div class="uk-width-expand" uk-leader>Месяц</div>
+							    <div>1000 ₽</div>
+							</div>					    	
+					    </li>
+					</ul>
+				</div>
+			</div>
+		</div>
+		<div class="uk-card uk-card-body uk-card- uk-box-shadow-large uk-margin-bottom">
+			<div class="uk-child-width-1-2@s" uk-grid>
+				<div>
+					<h3 class="uk-card-title">Business</h3>					
+				</div>
+				<div>
+					<p class="uk-text-muted uk-hidden@s uk-margin-remove-top"><span class="uk-margin-small-right" uk-icon="location"></span>Германия, Финляндия</p>
+					<p class="uk-text-muted uk-text-right uk-visible@s uk-margin-remove-top"><span class="uk-margin-small-right" uk-icon="location"></span>Германия, Финляндия</p>
+				</div>
+			</div>
+
+			<div class="uk-grid-divider" uk-grid>
+				<div class="uk-width-1-3@m">
+					<p>Для больших и высоконагруженных проектов.</p>
+					<p>Доступно объедиение виртуальных серверов из разных узлов кластера в приватную сеть.</p> 
+				</div>
+				<div class="uk-width-2-3@m">
+					<div class="uk-grid-small" uk-grid>
+					    <div class="uk-width-expand" uk-leader>CPU</div>
+					    <div>4 vCore</div>
+					</div>
+					<div class="uk-grid-small" uk-grid>
+					    <div class="uk-width-expand" uk-leader>Disk</div>
+					    <div>50 Gb <small>NVMe</small></div>
+					</div>
+					<div class="uk-grid-small" uk-grid>
+					    <div class="uk-width-expand" uk-leader>Disk (max)</div>
+					    <div>200 Gb <small>NVMe</small></div>
+					</div>
+					<div class="uk-grid-small" uk-grid>
+					    <div class="uk-width-expand" uk-leader>Disk I/O</div>
+					    <div>50 Mb/s</div>
+					</div>
+					<ul class="uk-child-width-expand" uk-tab>
+					    <li><a href="#">8 Gb RAM</a></li>
+					    <li><a href="#">12 Gb RAM</a></li>
+					    <li><a href="#">16 Gb RAM</a></li>
+					    <li><a href="#">20 Gb RAM</a></li>
+					</ul>
+
+					<ul class="uk-switcher uk-margin uk-text-small">
+					    <li>	
+							<div class="uk-grid-small" uk-grid>
+							    <div class="uk-width-expand" uk-leader>День</div>
+							    <div>50 ₽</div>
+							</div>	
+							<div class="uk-grid-small" uk-grid>
+							    <div class="uk-width-expand" uk-leader>Месяц</div>
+							    <div>1500 ₽</div>
+							</div>					    	
+					    </li>
+					    <li>	
+							<div class="uk-grid-small" uk-grid>
+							    <div class="uk-width-expand" uk-leader>День</div>
+							    <div>66.66 ₽</div>
+							</div>	
+							<div class="uk-grid-small" uk-grid>
+							    <div class="uk-width-expand" uk-leader>Месяц</div>
+							    <div>2000 ₽</div>
+							</div>					    	
+					    </li>
+					    <li>
+							<div class="uk-grid-small" uk-grid>
+							    <div class="uk-width-expand" uk-leader>День</div>
+							    <div>83.33 ₽</div>
+							</div>	
+							<div class="uk-grid-small" uk-grid>
+							    <div class="uk-width-expand" uk-leader>Месяц</div>
+							    <div>2500 ₽</div>
+							</div>					    	
+					    </li>
+					    <li>
+							<div class="uk-grid-small" uk-grid>
+							    <div class="uk-width-expand" uk-leader>День</div>
+							    <div>100 ₽</div>
+							</div>	
+							<div class="uk-grid-small" uk-grid>
+							    <div class="uk-width-expand" uk-leader>Месяц</div>
+							    <div>3000 ₽</div>
+							</div>					    	
+					    </li>
+					</ul>			
+				</div>
+			</div>
+		</div>
+		<div class="uk-card uk-card-body uk-card-default uk-box-shadow-large uk-margin-bottom">
+			<h3 class="uk-card-title">Дополнительно</h3>
+			<div class="uk-child-width-1-2@m uk-grid-small uk-margin-bottom" uk-grid>
+				<div>
+					<div class="uk-grid-small" uk-grid>
+					    <div class="uk-width-expand" uk-leader>Disk 5 Gb <small>NVMe</small></div>
+					    <div class="uk-text-right">
+					    	1.66 ₽/50 ₽ 
+						</div>
+					</div>					
+				</div>
+				<div>
+					<div class="uk-grid-small" uk-grid>
+					    <div class="uk-width-expand" uk-leader>ISPmanager 5 Lite</div>
+					    <div>250 ₽/месяц</div>
+					</div>
+				</div>
+
+			</div>
+		</div>
+		<div class="uk-card uk-card-body uk-card-default uk-box-shadow-large uk-margin-bottom">
+			<h3 class="uk-h4 uk-margin-small">Особенности тарификации</h3>
+			Отчетный период 0.00 UTC. Если услуга заказана в 18.00, то первые сутки будут равняться 6 часам.<br>Тарифы и дополнения можно менять в любую сторону, включая диск. Остановка или перезагрузка сервера не требуется. <br>
+			*<small>переход возможен в пределах одного узла кластера между тарифами Master и Professional</small>
+			<h3 class="uk-h4 uk-margin-small">Доступные операционные системы</h3>
+			Centos 7/8, Debian 9/10, Ubuntu 18.04
+			<h3 class="uk-h4 uk-margin-small">Особенности технологии</h3>
+			На наших серверах используется тип сети Host-Routed с интерфесом venet. Это делает невозможным запустить Docker и LXC/LXD. Так же заблокированы устройства tun/tap. 
+			Возможно в дальнейшем мы пересмотрим политику безопасности и внесем изменения.
+			<h3 class="uk-h4 uk-margin-small">Панель управления</h3>
+			<ul class="uk-margin-remove uk-list uk-list-hyphen">
+				<li>текущая нагрузка</li>
+				<li>управление состоянием (stop/start/restart)</li>
+				<li>переустановка операционной системы</li>
+				<li>сброс пароля root</li>
+			</ul>
+		</div>
+		<div class="uk-text-center">
+			<a href="#" class="uk-button uk-button-primary uk-flex uk-flex-middle uk-flex-inline uk-disabled">
+				<span class="uk-margin-small-right" uk-icon="ratio:1; icon:cart;"></span><span>Заказать сервер</span></a>
+		</div>
+	</div>
+
+	<section class="uk-section uk-section-xsmall uk-section-muted uk-text-center uk-text-small uk-text-uppercase" style="background: #e7e7e7;">
+		Cloud Controller &copy; 2020
+	</section>
+
+
+<!-- Chatra {literal} -->
+<script>
+    (function(d, w, c) {
+        w.ChatraID = 'Nj2jdZqvXFDvPW8YE';
+        var s = d.createElement('script');
+        w[c] = w[c] || function() {
+            (w[c].q = w[c].q || []).push(arguments);
+        };
+        s.async = true;
+        s.src = 'https://call.chatra.io/chatra.js';
+        if (d.head) d.head.appendChild(s);
+    })(document, window, 'Chatra');
+</script>
+<!-- /Chatra {/literal} -->
+</body>
+</html>

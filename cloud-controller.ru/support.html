@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+	<meta charset="UTF-8">
+	<title>Cloud Controller | Hosting dedicated servers</title>
+	  <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+	  <link rel="shortcut icon" href="/favicon.png" type="image/x-icon">
+	  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/uikit/3.0.0-rc.25/css/uikit.min.css" />
+
+	  <script src="https://cdnjs.cloudflare.com/ajax/libs/uikit/3.0.0-rc.25/js/uikit.min.js"></script>
+	  <script src="https://cdnjs.cloudflare.com/ajax/libs/uikit/3.0.0-rc.25/js/uikit-icons.min.js"></script>
+	  <style>
+	  	.uk-navbar-item, .uk-navbar-nav > li > a, .uk-navbar-toggle {padding: 0 10px;}
+	  </style>
+</head>
+<body style="background: #f8f8f8;">
+	<div class="uk-background-primary uk-light" uk-sticky="show-on-up: true; animation: uk-animation-slide-top;">
+		<div class="uk-container uk-container-small">
+			<nav class="uk-navbar-container uk-navbar-transparent" uk-navbar>
+				<div class="uk-navbar-left uk-text-uppercase">
+					<a href="/" class="uk-logo" style="color: #fff;"><span uk-icon="icon: server; ratio: 1.7" class="uk-margin-small-right" style="color: #fff;"></span>Cloud Controller</a>
+				</div>
+				<div class="uk-navbar-right">
+			        <ul class="uk-navbar-nav uk-visible@m">
+	                    <li class="uk-active">
+	                    	<a href="/ovz.html"><span class="uk-margin-small-right" uk-icon="cart"></span>Услуги<span class="uk-margin-small-left" uk-icon="chevron-down"></a>
+			                <div class="uk-navbar-dropdown" style="width: 220px;">
+			                    <ul class="uk-nav uk-navbar-dropdown-nav">
+			                        <li><a href="/ovz.html"><span class="uk-margin-small-right" uk-icon="grid"></span>Серверы VDS</a></li>
+			                        <li class="uk-active"><a href="/support.html"><span class="uk-margin-small-right" uk-icon="settings"></span>Администрирование</a></li>
+			                    </ul>
+			                </div>
+	                    </li>
+	                    <!-- <li class="">
+	                    	<a href="#"><span class="uk-margin-small-right" uk-icon="lifesaver"></span>Информация<span class="uk-margin-small-left" uk-icon="chevron-down"></a>
+			                <div class="uk-navbar-dropdown">
+			                    <ul class="uk-nav uk-navbar-dropdown-nav">
+			                        <li class="#"><a href="#"><span class="uk-margin-small-right" uk-icon="users"></span>Блог</a></li>
+			                        <li><a href="#"><span class="uk-margin-small-right" uk-icon="file-pdf"></span>Документация</a></li>
+			                        <li><a href="#"><span class="uk-margin-small-right" uk-icon="list"></span>Узлы кластера</a></li>
+			                    </ul>
+			                </div>
+	                    </li> -->
+                        <li class=""><a href="#" target="_blank"><span class="uk-margin-small-right" uk-icon="user"></span>Личный кабинет</a></li>
+ 			        </ul>
+			        <ul class="uk-navbar-nav uk-hidden@m">
+			            <li class="uk-active">
+			                <a href="#"><span class="uk-margin-small-right" uk-icon="menu"></span></a>
+			                <div class="uk-navbar-dropdown">
+			                    <ul class="uk-nav uk-navbar-dropdown-nav">
+			                        <li class="uk-active"><a href="/ovz.html"><span class="uk-margin-small-right" uk-icon="grid"></span>OVZ</a></li>
+				                    <li><a href="/support.html"><span class="uk-margin-small-right" uk-icon="settings"></span>Support</a></li>
+				                    <li class=""><a href="#" target="_blank"><span class="uk-margin-small-right" uk-icon="cart"></span>Billing</a></li>
+			                    </ul>
+			                </div>			          
+			            </li>
+ 			        </ul>
+				</div>
+			</nav>
+		</div>
+	</div>
+	<div class="uk-container uk-container-small uk-margin-top uk-margin-bottom" style="min-height: calc(100vh - 181px);">
+		<h1 class="uk-h2">Администрирование</h1>
+
+		<div class="uk-card uk-card-body uk-card-default uk-box-shadow-large uk-margin-bottom">
+			<h3 class="uk-card-title uk-heading-divider">Разовые работы</h3>
+			<div class="uk-grid-small" uk-grid>
+			    <div class="uk-width-expand" uk-leader>Базовая настройка VDS (<small>ISPmanager/Plesk/Fastpanel</small>)</div>
+			    <div>1 000 ₽</div>
+			</div>
+			<div class="uk-grid-small" uk-grid>
+			    <div class="uk-width-expand" uk-leader>Расширенная настройка VDS (<small>ISPmanager/Plesk/Fastpanel</small>)</div>
+			    <div>1 500 ₽</div>
+			</div>
+			<div class="uk-grid-small" uk-grid>
+			    <div class="uk-width-expand" uk-leader>Базовая настройка Dedicated (<small>ISPmanager/Plesk/Fastpanel</small>)</div>
+			    <div>1 500 ₽</div>
+			</div>
+			<div class="uk-grid-small" uk-grid>
+			    <div class="uk-width-expand" uk-leader>Расширенная настройка Dedicated (<small>ISPmanager/Plesk/Fastpanel</small>)</div>
+			    <div>2 000 ₽</div>
+			</div>
+			<div class="uk-grid-small" uk-grid>
+			    <div class="uk-width-expand" uk-leader>Настройка окружения Битрикс (<small>VDS</small>)</div>
+			    <div>1 000 ₽</div>
+			</div>
+			<div class="uk-grid-small" uk-grid>
+			    <div class="uk-width-expand" uk-leader>Настройка окружения Битрикс (<small>Dedicated</small>)</div>
+			    <div>2 000 ₽</div>
+			</div>
+			<div class="uk-grid-small" uk-grid>
+			    <div class="uk-width-expand" uk-leader>Настройка сервера виртуализации (<small>Proxmox/VMmanager/Virtuozzo</small>)</div>
+			    <div>5 000 ₽</div>
+			</div>
+			<div class="uk-grid-small" uk-grid>
+			    <div class="uk-width-expand" uk-leader>Другие работы (30 минут)</div>
+			    <div>500 ₽</div>
+			</div>
+			<div class="uk-grid-small" uk-grid>
+			    <div class="uk-width-expand" uk-leader>Работы в ночное время (<small>с 22.00 МСК</small>)</div>
+			    <div>+50%</div>
+			</div>
+		</div>
+
+		<div class="uk-card uk-card-body uk-card-default uk-box-shadow-large uk-margin-bottom">
+			<h3 class="uk-card-title uk-heading-divider">Абонентское обслуживание</h3>
+			<div class="uk-grid-small" uk-grid>
+			    <div class="uk-width-expand" uk-leader>Администрирование VDS (<small>ISPmanager/окружение Битрикс/Plesk/Fastpanel</small>)</div>
+			    <div>1 000 ₽/мес.</div>
+			</div>
+			<div class="uk-grid-small" uk-grid>
+			    <div class="uk-width-expand" uk-leader>Администрирование Dedicated (<small>ISPmanager/окружение Битрикс/Plesk/Fastpanel</small>)</div>
+			    <div>1 500 ₽/мес.</div>
+			</div>
+			<div class="uk-grid-small" uk-grid>
+			    <div class="uk-width-expand" uk-leader>Администрирование сервера виртуализации (<small>Proxmox/VMmanager/Virtuozzo</small>)</div>
+			    <div>5 000 ₽/мес.</div>
+			</div>
+		</div>
+		<div class="uk-card uk-card-body uk-card-primary">
+			Оформить заказ можно в <a href="https://cp.cloud-controller.ru" target="_blank">личном кабинете</a>, написав запрос в поддержку.
+		</div>
+	</div>
+	<section class="uk-section uk-section-xsmall uk-section-muted uk-text-center uk-text-small uk-text-uppercase" style="background: #e7e7e7;">
+		Cloud Controller &copy; 2020
+	</section>
+
+<!-- Chatra {literal} -->
+<script>
+    (function(d, w, c) {
+        w.ChatraID = 'Nj2jdZqvXFDvPW8YE';
+        var s = d.createElement('script');
+        w[c] = w[c] || function() {
+            (w[c].q = w[c].q || []).push(arguments);
+        };
+        s.async = true;
+        s.src = 'https://call.chatra.io/chatra.js';
+        if (d.head) d.head.appendChild(s);
+    })(document, window, 'Chatra');
+</script>
+<!-- /Chatra {/literal} -->
+</body>
+</html>
