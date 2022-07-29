@@ -14,11 +14,11 @@ class UserController extends Controller
 
     public function index()
     {
-        $users = QueryBuilder::for(User::class)
+        $users = QueryBuilder::for(User::class)->with('roles')->with('profile')
             ->allowedFilters(['name', 'email', 'profile.phone', 'profile.about', 'profile.note', 'roles.name'])
             ->allowedIncludes(['profile', 'roles'])
             ->orderBy('name')
-            ->paginate(200);
+            ->paginate(20);
             // dd($users);
         return view('admin.users.index', ['users' => $users]);
     }
@@ -32,6 +32,12 @@ class UserController extends Controller
 
     public function store(Request $request)
     {
+        $validated = $request->validate([
+            'name' => ['required', 'string', 'min:5', 'max:255'],
+            'email' => ['required', 'string', 'email', 'max:255', 'unique:users',],
+            'phone' => ['nullable','numeric','regex:/^.{11,20}$/i', 'unique:profiles,phone'],
+        ]);
+
         $user = new User;
         $user->name = $request->name;
         $user->email = $request->email;
@@ -39,6 +45,8 @@ class UserController extends Controller
         $user->save();
         $profile = Profile::where('user_id', $user->id)->firstOrFail();
         $profile->phone = $request->phone;
+        $profile->about = $request->about;
+        $profile->note = $request->note;
         $profile->update();
         $user->assignRole($request->role);
 
@@ -58,15 +66,23 @@ class UserController extends Controller
         return view('admin.users.edit', ['user' => $user, 'roles' => $roles]);
     }
 
-    public function update(Request $request, $id)
+    public function update(Request $request, User $user)
     {
-        $user = User::findOrFail($id);
+        $validated = $request->validate([
+            'name' => ['required', 'string', 'max:255'],
+            'phone' => ['nullable', 'numeric','regex:/^.{11,20}$/i', 'unique:profiles,phone,'.$user->id],
+            'email' => 'required|email|unique:users,email,'.$user->id
+        ]);
+
+        // $user = User::findOrFail($id);
         $user->name = $request->name;
         $user->email = $request->email;
         $user->password = bcrypt($request->password);
         $user->update();
         $profile = Profile::where('user_id', $user->id)->firstOrFail();
         $profile->phone = $request->phone;
+        $profile->about = $request->about;
+        $profile->note = $request->note;
         $profile->update();
         $user->assignRole($request->role);
 

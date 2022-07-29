@@ -43,6 +43,7 @@
 			@endforeach
 		</tbody>
 	</table>
+	{{ $users->appends(request()->input())->links('admin.pagination') }}
 </div>
 @endif
 @endsection

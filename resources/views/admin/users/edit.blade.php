@@ -13,6 +13,9 @@
 				<div class="uk-form-controls">
 					<label for="name" class="uk-form-label">Имя</label>
 					<input type="text" class="uk-input" id="name" name="name" value="{{ old('name') ?? $user->name }}" required minlength="5">
+                    @error('name')
+                    <span class="uk-text-danger uk-text-small">{{ $message }}</span>
+                    @enderror 					
 				</div>
 			</div>
 			<div class="uk-margin">
@@ -20,12 +23,18 @@
 					<label for="email" class="uk-form-label">Email</label>
 					<input type="email" class="uk-input" id="email" name="email" value="{{ old('email') ?? $user->email }}" required>
 				</div>
+                @error('email')
+                <span class="uk-text-danger uk-text-small">{{ $message }}</span>
+                @enderror 				
 			</div>
 			<div class="uk-margin">
 				<div class="uk-form-controls">
 					<label for="phone" class="uk-form-label">Телефон</label>
 					<input type="phone" class="uk-input" id="phone" name="phone" value="{{ $user->profile->phone ?? old('phone') }}">
 				</div>
+                @error('phone')
+                <span class="uk-text-danger uk-text-small">{{ $message }}</span>
+                @enderror 				
 			</div>
 			<div class="uk-margin">
 				<div class="uk-form-controls">
@@ -43,13 +52,13 @@
 			<div class="uk-margin">
 				<div class="uk-form-controls">
 					<label for="about" class="uk-form-label">Дополнительно</label>
-					<textarea name="about" id="about" rows="4" class="uk-textarea">{{ old('about') }}</textarea>
+					<textarea name="about" id="about" rows="4" class="uk-textarea">{{ old('about') ?? $user->profile->about }}</textarea>
 				</div>
 			</div>
 			<div class="uk-margin">
 				<div class="uk-form-controls">
 					<label for="note" class="uk-form-label">Заметка</label>
-					<textarea name="note" id="note" rows="4" class="uk-textarea">{{ old('note') }}</textarea>
+					<textarea name="note" id="note" rows="4" class="uk-textarea">{{ old('note') ?? $user->profile->note }}</textarea>
 				</div>
 			</div>
 		</div>
