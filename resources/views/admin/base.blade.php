@@ -8,8 +8,8 @@
 	<link rel="stylesheet" href="/css/uikit.min.css">
 	<script src="/js/uikit.min.js"></script>
 	<script src="/js/uikit-icons.min.js"></script>
-	<script src="/js/turbolinks.js"></script>
-	<meta name="turbolinks-cache-control" content="no-cache">
+	<script type="module" src="https://cdn.skypack.dev/@hotwired/turbo"></script>
+	<meta name="turbo-cache-control" content="no-cache">
 	<style type="text/css">
         .uk-navbar-item, .uk-navbar-nav > li > a, .uk-navbar-toggle {padding: 0 10px;}
         .uk-notification-message {font-size: 16px;}		

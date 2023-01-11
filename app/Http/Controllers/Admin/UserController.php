@@ -84,7 +84,7 @@ class UserController extends Controller
         $profile->about = $request->about;
         $profile->note = $request->note;
         $profile->update();
-        $user->assignRole($request->role);
+        $user->syncRoles($request->role);
 
         return redirect(route('admin.users.show', $user))->with('user-updated', '');
     }

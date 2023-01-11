@@ -8,7 +8,8 @@
 	<link rel="stylesheet" href="/css/uikit.min.css" />
 	<script src="/js/uikit.min.js"></script>
 	<script src="/js/uikit-icons.min.js"></script>
-    {{-- <script src="/js/turbolinks.js" defer></script> --}}
+	<script type="module" src="https://cdn.skypack.dev/@hotwired/turbo"></script>
+	<meta name="turbo-cache-control" content="no-cache">
 </head>
 <body>
 

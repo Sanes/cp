@@ -5,8 +5,8 @@
 @section('content')
 <h4>Изменить пользователя</h4>
 <form action="{{ route('admin.users.update', $user->id) }}" method="post" class="uk-form-stacked">
-			@csrf
-			@method('put')
+	@csrf
+	@method('put')
 	<div uk-grid>
 		<div class="uk-width-1-3@l uk-width-1-2@m">
 			<div class="uk-margin">
@@ -42,7 +42,7 @@
 					<select name="role" id="role" class="uk-select">
 						<option value="">Без роли</option>
 						@foreach($roles as $role)
-						<option value="{{ $role->name }}" class="uk-text-capitalize">{{ $role->name }}</option>
+						<option value="{{ $role->name }}" class="uk-text-capitalize" @if($user->getRoleNames()->first() === $role->name) selected @endif>{{ $role->name }}</option>
 						@endforeach
 					</select>
 				</div>

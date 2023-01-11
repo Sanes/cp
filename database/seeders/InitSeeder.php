@@ -18,11 +18,5 @@ class InitSeeder extends Seeder
     {
         Role::create(['name' => 'admin']);
         Role::create(['name' => 'customer']);
-        // $user = User::create([
-        //     'name' => 'Sanes',
-        //     'email' => 'top-smart@ya.ru',
-        //     'password' => bcrypt('Pass123123')
-        // ]);
-        // $user->assignRole('admin');
     }
 }
