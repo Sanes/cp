@@ -6,6 +6,7 @@
 	<title>@yield('title') | {{ config('app.name')}}</title>
     <link rel="icon" href="/laravel.png">
 	<link rel="stylesheet" href="/css/uikit.min.css">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.6.0/styles/github.min.css">	
 	<script src="/js/uikit.min.js"></script>
 	<script src="/js/uikit-icons.min.js"></script>
 	<script type="module" src="https://cdn.skypack.dev/@hotwired/turbo"></script>
@@ -13,6 +14,7 @@
 	<style type="text/css">
         .uk-navbar-item, .uk-navbar-nav > li > a, .uk-navbar-toggle {padding: 0 10px;}
         .uk-notification-message {font-size: 16px;}		
+        pre {max-height: 400px; font-size: 0.7rem;}
 	</style>
 </head>
 <body>
@@ -56,5 +58,7 @@
 	</div>
     <div class="uk-container uk-padding-small uk-text-small uk-text-center uk-text-uppercase">{{ config('app.name')}} © 2022</div>
     @yield('js')
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.6.0/highlight.min.js"></script>
+    <script>hljs.highlightAll();</script>
 </body>
 </html>

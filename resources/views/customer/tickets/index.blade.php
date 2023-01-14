@@ -21,15 +21,17 @@
 		<thead>
 			<tr>
 				<th>ID</th>
-				<th>Запрос</th>
-				<th>Email</th>
+				<th>Тема запроса</th>
+				<th>Обновлён</th>
+				<th>Статус</th>
 			</tr>
 		</thead>
 		<tbody>
 			@foreach($tickets as $ticket)
 			<tr>
 				<td class="uk-table-shrink">{{ $ticket->id }}</td>
-				<td class="uk-width-expand uk-text-nowrap uk-table-link uk-link-reset"><a href="">{{ $ticket->title }}</a></td>
+				<td class="uk-width-expand uk-text-nowrap uk-table-link uk-link-reset"><a href="{{ route('customer.tickets.show', $ticket->id) }}">{{ $ticket->title }}</a></td>
+				<td class="uk-table-shrink uk-text-nowrap">{{ $ticket->updated_at->format('H:i d-m-Y') }}</td>
 				<td class="uk-text-nowrap">{{ $ticket->status }}</td>
 			</tr>
 			@endforeach
@@ -40,4 +42,5 @@
 @endif
 @endsection
 @section('js')
+@include('customer.tickets.notify')
 @endsection

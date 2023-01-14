@@ -15,7 +15,7 @@ class TicketController extends Controller
      */
     public function index()
     {
-        $tickets = Ticket::paginate(10);
+        $tickets = Ticket::where('user_id', auth()->user()->id)->orderBy('status')->orderByDesc('updated_at')->paginate(5);
         return view('customer.tickets.index', ['tickets' => $tickets]);
     }
 
@@ -47,7 +47,7 @@ class TicketController extends Controller
         $ticket->content = $request->content;
         $ticket->user_id = auth()->user()->id;
         $ticket->save();
-        return redirect(route('customer.tickets.index'));
+        return redirect(route('customer.tickets.index'))->with('ticket-created', '');
     }
 
     /**
@@ -58,7 +58,8 @@ class TicketController extends Controller
      */
     public function show(Ticket $ticket)
     {
-        //
+        $ticket = Ticket::where('user_id', auth()->user()->id)->where('id', $ticket->id)->firstOrFail();
+        return view('customer.tickets.show', ['ticket' => $ticket]);
     }
 
     /**
