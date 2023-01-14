@@ -32,6 +32,9 @@
             @endguest
             @role('admin')
             <a href="{{ route('admin.users.index') }}" class="uk-button uk-button-text">Администрирование</a>
+            @endrole    
+            @role('customer')
+            <a href="{{ route('customer.tickets.index') }}" class="uk-button uk-button-text">Запросы</a>
             @endrole                
             @auth
             <div class="uk-margin">

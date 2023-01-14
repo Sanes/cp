@@ -50,13 +50,13 @@
 	</div>
 </div>
 <div class="uk-margin">
-    @if(auth()->user()->id !== $user->id && $user->id !== 1)
 	<ul class="uk-iconnav">
 	    <li><a href="{{ route('admin.users.edit', $user->id) }}" class="uk-icon-button" uk-icon="icon: file-edit"></a></li>
+    @if(auth()->user()->id !== $user->id && $user->id !== 1)
 	    <li><a href="{{ route('admin.users.impersonate', $user->id) }}" class="uk-icon-button" uk-icon="icon: sign-in"></a></li>
 	    <li><a onclick="destroyUser('{{ $user->id }}', '{{ $user->name }}');" class="uk-icon-button" uk-icon="icon: trash"></a></li>
-	</ul>	
     @endif
+	</ul>	
 </div>
 <form action="{{ route('admin.users.destroy', $user->id) }}" method="post" id="destroy">
     @method('DELETE')

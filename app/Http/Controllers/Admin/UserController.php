@@ -77,14 +77,24 @@ class UserController extends Controller
         // $user = User::findOrFail($id);
         $user->name = $request->name;
         $user->email = $request->email;
-        $user->password = bcrypt($request->password);
+        if ($request->password) {
+            $user->password = bcrypt($request->password);
+        }
         $user->update();
         $profile = Profile::where('user_id', $user->id)->firstOrFail();
         $profile->phone = $request->phone;
         $profile->about = $request->about;
         $profile->note = $request->note;
         $profile->update();
-        $user->syncRoles($request->role);
+        if ($user->id !== 1 || $user->id !== auth()->user()->id) {
+            if ($request->role) {
+                $user->syncRoles($request->role);
+            }
+            else
+            {
+                $user->syncRoles();
+            }
+        }
 
         return redirect(route('admin.users.show', $user))->with('user-updated', '');
     }

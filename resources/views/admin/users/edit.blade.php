@@ -36,6 +36,7 @@
                 <span class="uk-text-danger uk-text-small">{{ $message }}</span>
                 @enderror 				
 			</div>
+			@if(auth()->user()->id !== $user->id && $user->id !== 1)
 			<div class="uk-margin">
 				<div class="uk-form-controls">
 					<label for="role" class="uk-form-label">Роль</label>
@@ -47,6 +48,7 @@
 					</select>
 				</div>
 			</div>
+			@endif
 		</div>
 		<div class="uk-width-2-3@l uk-width-1-2@m">
 			<div class="uk-margin">

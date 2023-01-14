@@ -1,0 +1,1 @@
+<a href="{{ route('customer.tickets.create') }}" class="uk-link-reset"><span class="uk-margin-small-right" uk-icon="plus"></span>Добавить</a>
