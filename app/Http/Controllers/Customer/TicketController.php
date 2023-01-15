@@ -70,7 +70,7 @@ class TicketController extends Controller
      */
     public function edit(Ticket $ticket)
     {
-        //
+        return 'ok';
     }
 
     /**

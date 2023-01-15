@@ -23,7 +23,7 @@ Route::prefix('cp')->name('customer.')->middleware(['role:customer'])->group(fun
         Route::post('store', 'store')->name('store');
         Route::get('create', 'create')->name('create');
         Route::get('{ticket}', 'show')->name('show');
-        Route::get('{ticket}/edit', 'edit')->name('edit');
+        Route::get('{ticket}/edit', 'edit')->name('edit')->middleware('update_timeout');
         Route::put('{ticket}/update', 'update')->name('update');
         Route::delete('{ticket}', 'destroy')->name('destroy');
     });

@@ -18,7 +18,7 @@ return new class extends Migration
             $table->string('title');
             $table->text('note')->nullable();
             $table->text('content');
-            $table->enum('status', ['open', 'in_progress', 'closed']);
+            $table->enum('status', ['open', 'in_progress', 'answered', 'closed']);
             $table->foreignIdFor(App\Models\User::class)->constrained()->onUpdate('cascade')->onDelete('cascade');
             $table->timestamps();
         });
