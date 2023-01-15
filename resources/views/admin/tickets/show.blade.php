@@ -1,9 +1,8 @@
-@extends('customer.base')
+@extends('admin.base')
 @section('title')
 Запрос #{{ $ticket->id }}
 @endsection
 @section('content')
-<turbo-frame id="content">
 <h4>Запрос #{{ $ticket->id }}</h4>
 <div uk-grid>
 	<div class="uk-width-2-3@l uk-width-1-2@m">

@@ -43,11 +43,11 @@ class TicketController extends Controller
         ]);
 
         $ticket = new Ticket;
-        $ticket->title = $request->title;
+        $ticket->title = strip_tags($request->title);
         $ticket->content = $request->content;
         $ticket->user_id = auth()->user()->id;
         $ticket->save();
-        return redirect(route('customer.tickets.index'))->with('ticket-created', '');
+        return redirect(route('customer.tickets.show', $ticket->id))->with('ticket-created', '');
     }
 
     /**

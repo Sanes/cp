@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Admin;
 
+use App\Http\Controllers\Controller;
 use App\Models\Ticket;
 use Illuminate\Http\Request;
 
@@ -14,7 +15,8 @@ class TicketController extends Controller
      */
     public function index()
     {
-        //
+        $tickets = Ticket::orderBy('status')->orderByDesc('updated_at')->paginate(5);
+        return view('admin.tickets.index', ['tickets' => $tickets]);
     }
 
     /**
@@ -24,7 +26,7 @@ class TicketController extends Controller
      */
     public function create()
     {
-        //
+        return view('admin.tickets.create');
     }
 
     /**
@@ -35,7 +37,17 @@ class TicketController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $validated = $request->validate([
+            'title' => ['required', 'string', 'min:10', 'max:255'],
+            'content' => ['required', 'string', 'min:20', 'max:2000'],
+        ]);
+
+        $ticket = new Ticket;
+        $ticket->title = strip_tags($request->title);
+        $ticket->content = $request->content;
+        $ticket->user_id = auth()->user()->id;
+        $ticket->save();
+        return redirect(route('admin.tickets.show', $ticket->id))->with('ticket-created', '');
     }
 
     /**
@@ -46,7 +58,7 @@ class TicketController extends Controller
      */
     public function show(Ticket $ticket)
     {
-        //
+        return view('admin.tickets.show', ['ticket' => $ticket]);
     }
 
     /**

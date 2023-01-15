@@ -1,7 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\Customer\TicketController;
+use App\Http\Controllers\Customer\TicketController as CustomerTicketController;
 
 /*
 |--------------------------------------------------------------------------
@@ -16,8 +16,9 @@ use App\Http\Controllers\Customer\TicketController;
 Route::get('/', function () {
     return view('welcome');
 })->name('welcome');
+
 Route::prefix('cp')->name('customer.')->middleware(['role:customer'])->group(function () {
-    Route::controller(TicketController::class)->prefix('tickets')->name('tickets.')->group(function () {
+    Route::controller(CustomerTicketController::class)->prefix('tickets')->name('tickets.')->group(function () {
         Route::get('/', 'index')->name('index');
         Route::post('store', 'store')->name('store');
         Route::get('create', 'create')->name('create');
@@ -26,4 +27,4 @@ Route::prefix('cp')->name('customer.')->middleware(['role:customer'])->group(fun
         Route::put('{ticket}/update', 'update')->name('update');
         Route::delete('{ticket}', 'destroy')->name('destroy');
     });
-});e('welcome');
+});

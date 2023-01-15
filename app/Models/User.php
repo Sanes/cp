@@ -9,10 +9,11 @@ use Illuminate\Notifications\Notifiable;
 use Laravel\Sanctum\HasApiTokens;
 use Spatie\Permission\Traits\HasRoles;
 use Lab404\Impersonate\Models\Impersonate;
+use App\Traits\Relations\HasManyTickets;
 
 class User extends Authenticatable
 {
-    use HasApiTokens, HasFactory, Notifiable, HasRoles, Impersonate;
+    use HasApiTokens, HasFactory, Notifiable, HasRoles, Impersonate, HasManyTickets;
 
     /**
      * The attributes that are mass assignable.

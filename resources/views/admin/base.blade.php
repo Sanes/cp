@@ -6,15 +6,12 @@
 	<title>@yield('title') | {{ config('app.name')}}</title>
     <link rel="icon" href="/laravel.png">
 	<link rel="stylesheet" href="/css/uikit.min.css">
+	<link rel="stylesheet" href="/css/style.css">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.6.0/styles/github.min.css">	
 	<script src="/js/uikit.min.js"></script>
 	<script src="/js/uikit-icons.min.js"></script>
 	<script type="module" src="https://cdn.skypack.dev/@hotwired/turbo"></script>
 	<meta name="turbo-cache-control" content="no-cache">
-	<style type="text/css">
-        .uk-navbar-item, .uk-navbar-nav > li > a, .uk-navbar-toggle {padding: 0 10px;}
-        .uk-notification-message {font-size: 16px;}		
-	</style>
-</head>
 <body>
 	<div class="uk-container uk-container-large" style="min-height: calc(100vh - 51px);">
 		<nav class="uk-navbar uk-margin" style="border-bottom: 1px solid #e5e5e5;" uk-navbar>
@@ -51,5 +48,7 @@
 	</div>
     <div class="uk-container uk-padding-small uk-text-small uk-text-center uk-text-uppercase">{{ config('app.name')}} © 2022</div>
     @yield('js')
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.6.0/highlight.min.js"></script>
+    <script>hljs.highlightAll();</script>
 </body>
 </html>
