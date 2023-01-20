@@ -8,6 +8,7 @@ use App\Models\User;
 use App\Models\Profile;
 use Spatie\Permission\Models\Role;
 use ProtoneMedia\LaravelCrossEloquentSearch\Search;
+
 class UserController extends Controller
 {
 

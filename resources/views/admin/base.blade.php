@@ -20,7 +20,7 @@
 			</div>
 			<div class="uk-navbar-right">
 		        <a class="uk-navbar-toggle uk-navbar-toggle-animate" uk-navbar-toggle-icon href="#"></a>
-		        <div class="uk-navbar-dropdown">
+		        <div class="uk-navbar-dropdown" uk-dropdown="mode: click;pos: bottom-right;">
 		            <ul class="uk-nav uk-navbar-dropdown-nav">
 		                <li><a href="{{ route('admin.users.show', auth()->user()->id) }}">Профиль</a></li>
 		                <li>
@@ -49,6 +49,15 @@
     <div class="uk-container uk-padding-small uk-text-small uk-text-center uk-text-uppercase">{{ config('app.name')}} © 2022</div>
     @yield('js')
     <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.6.0/highlight.min.js"></script>
-    <script>hljs.highlightAll();</script>
+    <script>
+    	hljs.highlightAll();
+    	document.onkeypress = function(event)
+    	{
+    		if(event.code == "KeyQ")
+    		{
+	    	 	UIkit.dropdown(".search").show();
+    		}
+    	}
+    </script>
 </body>
 </html>

@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use App\Models\Ticket;
 use Illuminate\Http\Request;
+use ProtoneMedia\LaravelCrossEloquentSearch\Search;
 
 class TicketController extends Controller
 {
@@ -13,11 +14,23 @@ class TicketController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        $tickets = Ticket::orderBy('status')->orderByDesc('updated_at')->paginate(5);
+        if ($request->get('s')) {
+        $tickets  = Search::add(Ticket::class, ['title', 'content' , 'note'])
+            ->beginWithWildcard()
+            ->orderBy('status')
+            ->orderByDesc('updated_at')
+            ->paginate(20)
+            ->search($request->get('s'));   
+        }
+        else
+        {
+            $tickets = Ticket::orderBy('status')->orderByDesc('updated_at')->paginate(20);
+        }
+
         return view('admin.tickets.index', ['tickets' => $tickets]);
-    }
+    }    
 
     /**
      * Show the form for creating a new resource.

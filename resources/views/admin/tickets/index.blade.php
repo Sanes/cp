@@ -6,9 +6,12 @@
 <div uk-grid>
 	<div class="uk-width-expand@m">
 		<h4>Запросы</h4>
+		@if(Request::get('s'))
+		<span class="uk-text-muted uk-text-small">Результаты по запросу:</span> {{ Request::get('s') }}
+		@endif	
 	</div>
 	<div class="uk-width-auto">
-		{{-- @include('customer.tickets.menu') --}}
+		@include('admin.tickets.menu')
 	</div>
 </div>
 @if($tickets->count() === 0)
