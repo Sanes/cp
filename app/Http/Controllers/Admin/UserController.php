@@ -6,20 +6,25 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\User;
 use App\Models\Profile;
-use Spatie\QueryBuilder\QueryBuilder;
 use Spatie\Permission\Models\Role;
-
+use ProtoneMedia\LaravelCrossEloquentSearch\Search;
 class UserController extends Controller
 {
 
-    public function index()
+    public function index(Request $request)
     {
-        $users = QueryBuilder::for(User::class)->with('roles')->with('profile')
-            ->allowedFilters(['name', 'email', 'profile.phone', 'profile.about', 'profile.note', 'roles.name'])
-            ->allowedIncludes(['profile', 'roles'])
-            ->orderBy('name')
-            ->paginate(20);
-            // dd($users);
+        if ($request->get('s')) {
+        $users = Search::new()
+            ->add(User::with('profile'), ['name', 'email', 'profile.phone', 'profile.about', 'profile.note'])
+            ->beginWithWildcard()
+            ->paginate(20)
+            ->search($request->get('s'));   
+        }
+        else
+        {
+            $users = User::paginate(20);
+        }
+
         return view('admin.users.index', ['users' => $users]);
     }
 
