@@ -6,6 +6,9 @@
 <div uk-grid>
 	<div class="uk-width-expand@m">
 		<h4>Пользователи</h4>
+		@if(Request::get('s'))
+		<span class="uk-text-muted uk-text-small">Результаты по запросу:</span> {{ Request::get('s') }}
+		@endif	
 	</div>
 	<div class="uk-width-auto">
 		@include('admin.users.menu')
@@ -36,7 +39,7 @@
 				<td>{{ $user->profile->phone }}</td>
 				<td class="uk-text-capitalize uk-table-link">
 					@foreach($user->getRoleNames() as $role)
-						<a href="{{ route('admin.users.index', ['filter[roles.name]' => $role]) }}" class="uk-link-reset">{{ $role }}</a>
+						<a href="{{ route('admin.users.index', ['s' => $role]) }}" class="uk-link-reset">{{ $role }}</a>
 					@endforeach					
 				</td>
 			</tr>

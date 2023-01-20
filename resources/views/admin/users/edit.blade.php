@@ -43,7 +43,7 @@
 					<select name="role" id="role" class="uk-select">
 						<option value="">Без роли</option>
 						@foreach($roles as $role)
-						<option value="{{ $role->name }}" class="uk-text-capitalize" @if($user->getRoleNames()->first() === $role->name) selected @endif>{{ $role->name }}</option>
+						<option value="{{ $role->name }}" class="uk-text-capitalize" @if($user->getRoleNames()->first() === $role->name) selected @endif>{{ ucfirst($role->name) }}</option>
 						@endforeach
 					</select>
 				</div>

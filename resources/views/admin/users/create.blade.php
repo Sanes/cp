@@ -47,10 +47,10 @@
 			<div class="uk-margin">
 				<div class="uk-form-controls">
 					<label for="role" class="uk-form-label">Роль</label>
-					<select name="role" id="role" class="uk-select">
+					<select name="role" id="role" class="uk-select text">
 						<option value="">Без роли</option>
 						@foreach($roles as $role)
-						<option value="{{ $role->name }}" class="uk-text-capitalize">{{ $role->name }}</option>
+						<option value="{{ $role->name }}">{{ ucfirst($role->name) }}</option>
 						@endforeach
 					</select>
 				</div>

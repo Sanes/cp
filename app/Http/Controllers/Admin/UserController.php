@@ -15,7 +15,7 @@ class UserController extends Controller
     {
         if ($request->get('s')) {
         $users = Search::new()
-            ->add(User::with('profile'), ['name', 'email', 'profile.phone', 'profile.about', 'profile.note'])
+            ->add(User::with(['profile', 'roles']), ['name', 'email', 'profile.phone', 'profile.about', 'profile.note', 'roles.name'])
             ->beginWithWildcard()
             ->paginate(20)
             ->search($request->get('s'));   
@@ -31,7 +31,6 @@ class UserController extends Controller
     public function create()
     {
         $roles = Role::all();
-        // dd($roles);
         return view('admin.users.create', ['roles' => $roles]);
     }
 
@@ -60,7 +59,6 @@ class UserController extends Controller
 
     public function show(User $user)
     {
-        // dd($user);
         return view('admin.users.show', $user, ['user' => $user]);
     }
 
@@ -79,7 +77,6 @@ class UserController extends Controller
             'email' => 'required|email|unique:users,email,'.$user->id
         ]);
 
-        // $user = User::findOrFail($id);
         $user->name = $request->name;
         $user->email = $request->email;
         if ($request->password) {
